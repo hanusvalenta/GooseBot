@@ -3,6 +3,8 @@ const { token } = require('./config.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
+const prefix = '/';
+
 client.once('ready', () => {
 	console.log('Ready!');
 });
