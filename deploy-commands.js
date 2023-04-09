@@ -8,11 +8,15 @@ const commands = [
   },
   {
     name: 'ping',
-    description: 'pong',
+    description: 'Pong',
   },
   {
     name: 'pong',
-    description: 'ping',
+    description: 'Ping',
+  },
+  {
+    name: 'selfie',
+    description: 'Sends AI selfie',
   },
 ];
 

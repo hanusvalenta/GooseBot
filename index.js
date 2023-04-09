@@ -1,5 +1,5 @@
 const { token } = require('./config.json');
-const { Client, IntentsBitField, ActivityType } = require('discord.js');
+const { Client, IntentsBitField, ActivityType, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -36,8 +36,6 @@ client.on('ready', (c) => {
 });
 
 client.on('interactionCreate', (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
-
   if (interaction.commandName === 'hi') {
     return interaction.reply('Hello there.');
   }
@@ -48,6 +46,17 @@ client.on('interactionCreate', (interaction) => {
 
   if (interaction.commandName === 'pong') {
     return interaction.reply('ping');
+  }
+
+  if (interaction.commandName === 'selfie') {
+    const embed = new EmbedBuilder()
+      .setTitle('Embed title')
+      .setDescription('Enjoy your selfie')
+      .setColor('ffffff')
+      .setImage('')
+      ;
+
+    interaction.reply({ embeds: [embed] });
   }
 });
 
