@@ -14,21 +14,19 @@ client.on('ready', (c) => {
   console.log(`${c.user.tag} is online.`);
 });
 
-client.on('messageCreate', (message) => {
-  if (message.author.bot) {
-    return;
-  }
+client.on('interactionCreate', (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
 
-  if (message.content === 'Test') {
-    message.reply('I am online.');
-  }
-
-  if (interaction.commandName === 'hey') {
-    return interaction.reply('hey!');
+  if (interaction.commandName === 'hi') {
+    return interaction.reply('Hello there.');
   }
 
   if (interaction.commandName === 'ping') {
-    return interaction.reply('Pong!');
+    return interaction.reply('pong');
+  }
+
+  if (interaction.commandName === 'pong') {
+    return interaction.reply('ping');
   }
 });
 
