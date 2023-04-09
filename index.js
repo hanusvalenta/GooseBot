@@ -12,19 +12,17 @@ const client = new Client({
 
 let status = [
   {
-    name: 'Online for some reason',
+    name: 'Valorant',
     type: ActivityType.Streaming,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
-    name: 'Online for some reason',
+    name: 'LACKADAISY',
     type: ActivityType.Watching,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
-    name: 'Online for some reason',
+    name: 'AnotherFunnyNickname#0262',
     type: ActivityType.Listening,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
 ];
 
