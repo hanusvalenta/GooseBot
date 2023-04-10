@@ -50,8 +50,8 @@ client.on('interactionCreate', (interaction) => {
 
   if (interaction.commandName === 'selfie') {
     const embed = new EmbedBuilder()
-      .setTitle('Embed title')
-      .setDescription('Enjoy your selfie')
+      .setTitle('Enjoy your selfie')
+      .setDescription('Done by GooseBot#8332')
       .setColor('ffffff')
       .setImage('https://imgur.com/a/zWJHHNC')
       ;
