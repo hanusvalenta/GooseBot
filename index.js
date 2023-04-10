@@ -53,7 +53,7 @@ client.on('interactionCreate', (interaction) => {
       .setTitle('Embed title')
       .setDescription('Enjoy your selfie')
       .setColor('ffffff')
-      .setImage('selfie.jpeg')
+      .setImage('https://imgur.com/a/zWJHHNC')
       ;
 
     interaction.reply({ embeds: [embed] });
