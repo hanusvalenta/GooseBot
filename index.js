@@ -35,7 +35,7 @@ client.on('ready', (c) => {
   }, 10000);
 });
 
-client.on('interactionCreate', (interaction) => {
+client.on('interactionCreate', async (interaction) => {
   if (interaction.commandName === 'hi') {
     return interaction.reply('Hello there.');
   }
@@ -53,10 +53,16 @@ client.on('interactionCreate', (interaction) => {
       .setTitle('Enjoy your selfie')
       .setDescription('Done by GooseBot#8332')
       .setColor('ffffff')
-      .setImage('https://imgur.com/a/zWJHHNC')
+      .setImage('https://cdn.discordapp.com/attachments/837064454885605386/1097920420499435610/selfie.jpeg')
       ;
 
     interaction.reply({ embeds: [embed] });
+  }
+
+  if (interaction.commandName === 'status') {
+    const ping = Math.round(interaction.client.ws.ping);
+
+    return interaction.reply(`My ping is ${ping}ms`);
   }
 });
 

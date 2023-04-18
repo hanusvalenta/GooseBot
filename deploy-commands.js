@@ -18,6 +18,10 @@ const commands = [
     name: 'selfie',
     description: 'Sends AI selfie',
   },
+  {
+    name: 'status',
+    description: 'Returns bot status',
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
