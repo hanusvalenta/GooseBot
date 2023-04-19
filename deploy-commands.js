@@ -22,6 +22,18 @@ const commands = [
     name: 'status',
     description: 'Returns bot status',
   },
+  {
+    name: 'repeat',
+    description: 'Repeats the message',
+    options: [
+      {
+        name: 'message',
+        description: 'The message to repeat',
+        type: 3,
+        required: true,
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

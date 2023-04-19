@@ -64,6 +64,11 @@ client.on('interactionCreate', async (interaction) => {
 
     return interaction.reply(`I'm ${client.user.tag} and my ping is ${ping}ms.`);
   }
+
+  if (interaction.commandName === 'repeat') {
+    const message = interaction.options.getString('message');
+    await interaction.reply(message);
+  }
 });
 
 client.login(token);
