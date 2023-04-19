@@ -51,7 +51,7 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.commandName === 'selfie') {
     const embed = new EmbedBuilder()
       .setTitle('Enjoy your selfie')
-      .setDescription(`Done by ${c.user.tag}.`)
+      .setDescription(`Done by ${client.user.tag}.`)
       .setColor('ffffff')
       .setImage('https://cdn.discordapp.com/attachments/837064454885605386/1097920420499435610/selfie.jpeg')
       ;
@@ -62,7 +62,7 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.commandName === 'status') {
     const ping = Math.round(interaction.client.ws.ping);
 
-    return interaction.reply(`I'm ${c.user.tag} and my ping is ${ping}ms.`);
+    return interaction.reply(`I'm ${client.user.tag} and my ping is ${ping}ms.`);
   }
 });
 
