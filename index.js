@@ -62,7 +62,7 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.commandName === 'status') {
     const ping = Math.round(interaction.client.ws.ping);
 
-    return interaction.reply(`My ping is ${ping}ms.`);
+    return interaction.reply(`I'm ${client.user.tag} and my ping is ${ping}ms.`);
   }
 });
 
