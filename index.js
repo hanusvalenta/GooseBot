@@ -17,7 +17,7 @@ let status = [
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
-    name: 'LACKADAISY',
+    name: 'Money Heist',
     type: ActivityType.Watching,
   },
   {
@@ -49,14 +49,22 @@ client.on('interactionCreate', async (interaction) => {
   }
 
   if (interaction.commandName === 'selfie') {
+    const fs = require('fs');
+    const path = require('path');
+
+    const selfieDir = path.join(__dirname, 'Selfies');
+    const selfieFiles = fs.readdirSync(selfieDir);
+    const selfieIndex = Math.floor(Math.random() * selfieFiles.length);
+    const selfieFile = path.join(selfieDir, selfieFiles[selfieIndex]);
+
     const embed = new EmbedBuilder()
       .setTitle('Enjoy your selfie')
       .setDescription(`Done by ${client.user.tag}.`)
       .setColor('ffffff')
-      .setImage('https://cdn.discordapp.com/attachments/837064454885605386/1097920420499435610/selfie.jpeg')
+      .setImage(`attachment://${selfieFiles[selfieIndex]}`)
       ;
 
-    interaction.reply({ embeds: [embed] });
+    interaction.reply({ embeds: [embed], files: [selfieFile] });
   }
 
   if (interaction.commandName === 'status') {
