@@ -59,7 +59,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const embed = new EmbedBuilder()
       .setTitle('Enjoy your selfie')
-      .setDescription(`Done by ${client.user.tag}.`)
+      .setDescription(`Done by ${client.user.tag}. Spreading is punishable...`)
       .setColor('ffffff')
       .setImage(`attachment://${selfieFiles[selfieIndex]}`)
       ;
