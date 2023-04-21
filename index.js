@@ -17,7 +17,7 @@ let status = [
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   },
   {
-    name: 'Your every move',
+    name: 'your every move',
     type: ActivityType.Watching,
   },
   {
