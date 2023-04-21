@@ -34,6 +34,44 @@ const commands = [
       },
     ],
   },
+  {
+    name: 'reference',
+    description: 'Get reference images for your artwork',
+    options: [
+      {
+        name: 'category',
+        description: 'Select a category',
+        type: 3,
+        required: true,
+        choices: [
+          {
+            name: 'Animals',
+            value: 'animals',
+          },
+          {
+            name: 'Full Body',
+            value: 'fullbody',
+          },
+          {
+            name: 'Hands',
+            value: 'hands',
+          },
+          {
+            name: 'Portraits',
+            value: 'portraits',
+          },
+          {
+            name: 'Structures',
+            value: 'structures',
+          },
+          {
+            name: 'Vegetation',
+            value: 'vegetation',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

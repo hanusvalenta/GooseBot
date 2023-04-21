@@ -77,6 +77,30 @@ client.on('interactionCreate', async (interaction) => {
     const message = interaction.options.getString('message');
     await interaction.reply(message);
   }
+
+  if (interaction.commandName === 'reference') {
+    const fs = require('fs');
+    const path = require('path');
+    const { options } = interaction;
+    const option = options.getString('category');
+  
+    if (!option) {
+      return interaction.reply('Please provide a category for the reference!');
+    }
+  
+    const categoryDir = path.join(__dirname, 'Reference', option.toLowerCase());
+    const categoryFiles = fs.readdirSync(categoryDir).filter(file => file.endsWith('.jpg'));
+    const categoryIndex = Math.floor(Math.random() * categoryFiles.length);
+    const categoryFile = path.join(categoryDir, categoryFiles[categoryIndex]);
+  
+    const embed = new EmbedBuilder()
+      .setTitle(`Enjoy your ${option.toLowerCase()} reference`)
+      .setDescription(`Done by ${client.user.tag}. Spreading is punishable...`)
+      .setColor('ffffff')
+      .setImage(`attachment://${categoryFiles[categoryIndex]}`);
+  
+    interaction.reply({ embeds: [embed], files: [categoryFile] });
+  }       
 });
 
 client.login(token);
