@@ -89,7 +89,7 @@ client.on('interactionCreate', async (interaction) => {
     }
   
     const categoryDir = path.join(__dirname, 'Reference', option.toLowerCase());
-    const categoryFiles = fs.readdirSync(categoryDir).filter(file => file.endsWith('.jpg'));
+    const categoryFiles = fs.readdirSync(categoryDir).filter(file => /\.(jpe?g|png|gif)$/i.test(file));
     const categoryIndex = Math.floor(Math.random() * categoryFiles.length);
     const categoryFile = path.join(categoryDir, categoryFiles[categoryIndex]);
   
