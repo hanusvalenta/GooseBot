@@ -104,21 +104,44 @@ client.on('interactionCreate', async (interaction) => {
 
   const { exec } = require('child_process');
   
-  if (interaction.commandName === 'clirun'){
+  function splitMessage(str) {
+    const MAX_LENGTH = 2000;
+    const messages = [];
+  
+    while (str.length > 0) {
+      if (str.length <= MAX_LENGTH) {
+        messages.push(str);
+        break;
+      }
+  
+      let sliceIndex = str.lastIndexOf('\n', MAX_LENGTH);
+      if (sliceIndex === -1) sliceIndex = MAX_LENGTH;
+  
+      messages.push(str.slice(0, sliceIndex));
+      str = str.slice(sliceIndex + 1);
+    }
+  
+    return messages;
+  }
+  
+  // ...
+  
+  if (interaction.commandName === 'clirun') {
     const command = interaction.options.getString('command');
-
+  
     exec(command, (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
         return interaction.reply(`An error occurred while running the command: ${error.message}`);
       }
-
+  
       console.log(`stdout: ${stdout}`);
       console.error(`stderr: ${stderr}`);
-
-      interaction.reply(`\`\`\`${stdout}\`\`\``);
+  
+      const messages = splitMessage(stdout);
+      messages.forEach(message => interaction.reply(`\`\`\`${message}\`\`\``));
     });
-  }
+  }    
 });
 
 client.login(token);
