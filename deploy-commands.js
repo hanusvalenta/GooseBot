@@ -72,6 +72,18 @@ const commands = [
       },
     ],
   },
+  {
+    name: 'clirun',
+    description: 'Runs the command and returns the output',
+    options: [
+      {
+        name: 'command',
+        description: 'Command to run',
+        type: 3,
+        required: true,
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
