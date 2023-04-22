@@ -124,8 +124,6 @@ client.on('interactionCreate', async (interaction) => {
     return messages;
   }
   
-  // ...
-  
   if (interaction.commandName === 'clirun') {
     const command = interaction.options.getString('command');
   
