@@ -31,4 +31,7 @@ Sends picture for your art practise for your choosing
 * /clirun
 Runs command on hosting device
 
+* /fetch
+Sends back the file specified
+
 note that the reference command can and will sometimes reply with pictures with artictic nudity!
