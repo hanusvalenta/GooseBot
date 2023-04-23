@@ -84,6 +84,18 @@ const commands = [
       },
     ],
   },
+  {
+    name: 'fetch',
+    description: 'Sends the desired file',
+    options: [
+      {
+        name: 'filename',
+        description: 'Name of the file to send',
+        type: 3,
+        required: true,
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

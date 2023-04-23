@@ -139,7 +139,37 @@ client.on('interactionCreate', async (interaction) => {
       const messages = splitMessage(stdout);
       messages.forEach(message => interaction.reply(`\`\`\`${message}\`\`\``));
     });
-  }    
+  }
+
+  const fs = require('fs');
+
+  if (interaction.commandName === 'fetch') {
+    const fileName = interaction.options.getString('filename');
+    try {
+      const file = await fetchFile(fileName);
+      await interaction.reply({ files: [file] });
+    } catch (error) {
+      await interaction.reply(`Error: ${error.message}`);
+    }
+  }
+
+  async function fetchFile(fileName) {
+    return new Promise((resolve, reject) => {
+      fs.access(fileName, fs.constants.F_OK, (err) => {
+        if (err) {
+          reject(new Error(`File ${fileName} not found`));
+        } else {
+          const fileStream = fs.createReadStream(fileName);
+          fileStream.on('error', (error) => {
+            reject(error);
+          });
+          fileStream.on('open', () => {
+            resolve(fileStream);
+          });
+        }
+      });
+    });
+  }
 });
 
 client.login(token);
