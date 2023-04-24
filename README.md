@@ -34,4 +34,7 @@ Runs command on hosting device
 * /fetch
 Sends back the file specified
 
+* /createtxt
+Creates .txt file with your input
+
 note that the reference command can and will sometimes reply with pictures with artictic nudity!
