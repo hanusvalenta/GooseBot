@@ -180,7 +180,7 @@ client.on('interactionCreate', async (interaction) => {
     } catch (error) {
       await interaction.reply(`Error: ${error.message}`);
     }
-  }  
+  }
 });
 
 client.login(token);
