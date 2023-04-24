@@ -96,6 +96,24 @@ const commands = [
       },
     ],
   },
+  {
+    name: 'createtxt',
+    description: 'Creates txt file on server',
+    options: [
+      {
+        name: 'filename',
+        description: 'Name of the file',
+        type: 3,
+        required: true,
+      },
+      {
+        name: 'text',
+        description: 'Text to be in the text file',
+        type: 3,
+        required: true,
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

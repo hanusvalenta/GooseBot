@@ -170,6 +170,17 @@ client.on('interactionCreate', async (interaction) => {
       });
     });
   }
+
+  if (interaction.commandName === 'createtxt') {
+    const fileName = interaction.options.getString('filename');
+    const text = interaction.options.getString('text');
+    try {
+      fs.writeFileSync(`${fileName}.txt`, text);
+      await interaction.reply(`The file ${fileName}.txt was successfully saved!`);
+    } catch (error) {
+      await interaction.reply(`Error: ${error.message}`);
+    }
+  }  
 });
 
 client.login(token);
