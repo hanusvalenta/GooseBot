@@ -21,7 +21,7 @@ let status = [
     type: ActivityType.Watching,
   },
   {
-    name: 'AnotherFunnyNickname#0262',
+    name: 'silly_gander',
     type: ActivityType.Listening,
   },
 ];
