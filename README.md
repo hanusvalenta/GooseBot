@@ -1,8 +1,7 @@
 # AnotherFunnyBot
 Basic discord bot.
 
-#Invite with the following link: https://discord.com/api/oauth2/authorize?client_id=809528316733554689&permissions=8&scope=bot%20applications.commands
-
+#Invite with the following link: https://discord.com/oauth2/authorize?client_id=1194015461470384148&permissions=8&scope=bot%20applications.commands
 to host on your own add config.json & .env with your bot token info
 
 list of currently usable commands:
