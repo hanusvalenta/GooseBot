@@ -103,15 +103,15 @@ client.on('interactionCreate', async (interaction) => {
   }
 
   if (interaction.commandName === 'roll') {
-    const firstnum = interaction.options.getString('firstnum');
-    const secondnum = interaction.options.getString('secondnum');
+    const min = interaction.options.getString('minimum');
+    const max = interaction.options.getString('maximum');
 
-    if (isNaN(firstnum) || isNaN(secondnum)) {
+    if (isNaN(min) || isNaN(max)) {
       return interaction.reply({ content: 'Please provide valid numbers.', ephemeral: true });
     }
 
-    const randomNumber = Math.floor(Math.random() * (secondnum - firstnum + 1));
-    interaction.reply(`Random number between ${firstnum} and ${secondnum} is: ${randomNumber}`);
+    const randomNumber = Math.floor(Math.random() * (max - min + 1));
+    interaction.reply(`You've rolled ${randomNumber} between ${min}/${max}`);
   }
 
   const { exec } = require('child_process');
@@ -138,18 +138,24 @@ client.on('interactionCreate', async (interaction) => {
   
   if (interaction.commandName === 'clirun') {
     const command = interaction.options.getString('command');
-  
+    const password = interaction.options.getString('password');
+    const ThePassword = 'test';
+    
+    if (password !== ThePassword) {
+        return interaction.reply('Incorrect password provided.');
+    }
+
     exec(command, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`exec error: ${error}`);
-        return interaction.reply(`An error occurred while running the command: ${error.message}`);
-      }
-  
-      console.log(`stdout: ${stdout}`);
-      console.error(`stderr: ${stderr}`);
-  
-      const messages = splitMessage(stdout);
-      messages.forEach(message => interaction.reply(`\`\`\`${message}\`\`\``));
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return interaction.reply(`An error occurred while running the command: ${error.message}`);
+        }
+    
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+    
+        const messages = splitMessage(stdout);
+        messages.forEach(message => interaction.reply(`\`\`\`${message}\`\`\``));
     });
   }
 

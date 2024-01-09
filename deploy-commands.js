@@ -77,6 +77,12 @@ const commands = [
     description: 'Runs the command and returns the output',
     options: [
       {
+        name: 'password',
+        description: 'password to use',
+        type: 3,
+        required: true,
+      },
+      {
         name: 'command',
         description: 'Command to run',
         type: 3,
@@ -119,13 +125,13 @@ const commands = [
     description: 'Roll a D&D dice',
     options: [
       {
-        name: 'firstnum',
+        name: 'minimum',
         description: 'minimum value',
         type: 3,
         required: true,
       },
       {
-        name: 'secondnum',
+        name: 'maximum',
         description: 'maximum value',
         type: 3,
         required: true,
