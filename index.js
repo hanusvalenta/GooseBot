@@ -139,8 +139,8 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.commandName === 'clirun') {
     const command = interaction.options.getString('command');
     const password = interaction.options.getString('password');
-    const ThePassword = 'test';
-    
+    const ThePassword = 'AnotherFunnyBot';
+
     if (password !== ThePassword) {
         return interaction.reply('Incorrect password provided.');
     }
