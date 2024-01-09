@@ -102,6 +102,18 @@ client.on('interactionCreate', async (interaction) => {
     interaction.reply({ embeds: [embed], files: [categoryFile] });
   }
 
+  if (interaction.commandName === 'roll') {
+    const firstnum = interaction.options.getString('firstnum');
+    const secondnum = interaction.options.getString('secondnum');
+
+    if (isNaN(firstnum) || isNaN(secondnum)) {
+      return interaction.reply({ content: 'Please provide valid numbers.', ephemeral: true });
+    }
+
+    const randomNumber = Math.floor(Math.random() * (secondnum - firstnum + 1));
+    interaction.reply(`Random number between ${firstnum} and ${secondnum} is: ${randomNumber}`);
+  }
+
   const { exec } = require('child_process');
   
   function splitMessage(str) {

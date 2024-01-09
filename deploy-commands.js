@@ -114,6 +114,24 @@ const commands = [
       },
     ],
   },
+  {
+    name: 'roll',
+    description: 'Roll a D&D dice',
+    options: [
+      {
+        name: 'firstnum',
+        description: 'minimum value',
+        type: 3,
+        required: true,
+      },
+      {
+        name: 'secondnum',
+        description: 'maximum value',
+        type: 3,
+        required: true,
+      },
+    ],
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
